@@ -21,7 +21,19 @@
 #define SAddress_with_GC      0x03
 
 
+#define ON                      1
+#define OFF                     0
 
+
+#define DC_Motor_1              1
+#define DC_Motor_2              2
+
+#define H_A1   PC3
+#define H_A2   PC4
+#define H_A3   PC5
+#define H_A4   PC6
+#define H_EN1  PD4
+#define H_EN2  PD5
 
 #define Buzzer PA3
 #define Relay  PA2

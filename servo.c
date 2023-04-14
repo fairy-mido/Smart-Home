@@ -18,9 +18,6 @@ void servo_init()
     
     setpinOUT(PD,7);
     _delay_ms(50);
-      
-     TCCR1A=0b01110011;
-    OCR1A = 67;
 
     
     TCCR2=0b01111101;
@@ -30,12 +27,10 @@ void servo_init()
 void servo_open()
 {
     OCR2 = 0;
-    OCR1A = 0;
 }
 
 void servo_close()
 {
  
     OCR2 = 67;
-    OCR1A = 67;
 }
