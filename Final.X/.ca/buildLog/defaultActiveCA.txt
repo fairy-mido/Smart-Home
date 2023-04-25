@@ -1,0 +1,115 @@
+make -f nbproject/Makefile-defaultActiveCA.mk SUBPROJECTS= .clean-conf
+make[1]: Entering directory 'C:/Users/moham/OneDrive/Desktop/Final.X'
+rm -f  -r .ca/build/defaultActiveCA/production
+rm -f  -r .ca/dist/defaultActiveCA/production
+make[1]: Leaving directory 'C:/Users/moham/OneDrive/Desktop/Final.X'
+[32mCLEAN SUCCESSFUL (total time: 255ms)[0m
+make -f nbproject/Makefile-defaultActiveCA.mk SUBPROJECTS= .build-conf
+make[1]: Entering directory 'C:/Users/moham/OneDrive/Desktop/Final.X'
+make  -f nbproject/Makefile-defaultActiveCA.mk .ca/dist/defaultActiveCA/production/Final.X.production.hex
+make[2]: Entering directory 'C:/Users/moham/OneDrive/Desktop/Final.X'
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/main.o.d" -MT ".ca/build/defaultActiveCA/production/main.o.d" -MT .ca/build/defaultActiveCA/production/main.o -o .ca/build/defaultActiveCA/production/main.o main.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/Keypad.o.d" -MT ".ca/build/defaultActiveCA/production/Keypad.o.d" -MT .ca/build/defaultActiveCA/production/Keypad.o -o .ca/build/defaultActiveCA/production/Keypad.o Keypad.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/DIO.o.d" -MT ".ca/build/defaultActiveCA/production/DIO.o.d" -MT .ca/build/defaultActiveCA/production/DIO.o -o .ca/build/defaultActiveCA/production/DIO.o DIO.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/mTimer.o.d" -MT ".ca/build/defaultActiveCA/production/mTimer.o.d" -MT .ca/build/defaultActiveCA/production/mTimer.o -o .ca/build/defaultActiveCA/production/mTimer.o mTimer.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/mlcd.o.d" -MT ".ca/build/defaultActiveCA/production/mlcd.o.d" -MT .ca/build/defaultActiveCA/production/mlcd.o -o .ca/build/defaultActiveCA/production/mlcd.o mlcd.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/mADC.o.d" -MT ".ca/build/defaultActiveCA/production/mADC.o.d" -MT .ca/build/defaultActiveCA/production/mADC.o -o .ca/build/defaultActiveCA/production/mADC.o mADC.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/DC_Motor.o.d" -MT ".ca/build/defaultActiveCA/production/DC_Motor.o.d" -MT .ca/build/defaultActiveCA/production/DC_Motor.o -o .ca/build/defaultActiveCA/production/DC_Motor.o DC_Motor.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/servo.o.d" -MT ".ca/build/defaultActiveCA/production/servo.o.d" -MT .ca/build/defaultActiveCA/production/servo.o -o .ca/build/defaultActiveCA/production/servo.o servo.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/I2C.o.d" -MT ".ca/build/defaultActiveCA/production/I2C.o.d" -MT .ca/build/defaultActiveCA/production/I2C.o -o .ca/build/defaultActiveCA/production/I2C.o I2C.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/UART.o.d" -MT ".ca/build/defaultActiveCA/production/UART.o.d" -MT .ca/build/defaultActiveCA/production/UART.o -o .ca/build/defaultActiveCA/production/UART.o UART.c 
+"C:\Program Files\Microchip\xc8\v2.41\bin\xc8-cc.exe"  -mcpu=ATmega32 -c  -x c -D__ATmega32__   -mdfp="C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/ATmega_DFP/3.0.158/xc8"  -Wl,--gc-sections -O1 -ffunction-sections -fdata-sections -fshort-enums -funsigned-char -funsigned-bitfields -Wall -DXPRJ_defaultActiveCA=defaultActiveCA    -gdwarf-3 -mconst-data-in-progmem -mno-const-data-in-config-mapped-progmem     -MD -MP -MF ".ca/build/defaultActiveCA/production/Lamps.o.d" -MT ".ca/build/defaultActiveCA/production/Lamps.o.d" -MT .ca/build/defaultActiveCA/production/Lamps.o -o .ca/build/defaultActiveCA/production/Lamps.o Lamps.c 
+[31mmlcd.c: In function 'lcd_data_num':
+mlcd.c:125:5: warning: implicit declaration of function 'itoa' [-Wimplicit-function-declaration]
+     itoa(num, str, 10);
+     ^
+Keypad.c: In function 'Keypad_CheckPress':
+Keypad.c:114:20: warning: array subscript has type 'char' [-Wchar-subscripts]
+     returnval = arr[row][coloumn]; //put the selected pressed key to the returnval
+                    ^
+Keypad.c:114:25: warning: array subscript has type 'char' [-Wchar-subscripts]
+     returnval = arr[row][coloumn]; //put the selected pressed key to the returnval
+                         ^
+Keypad.c: In function 'login_user_pass':
+Keypad.c:310:13: warning: array subscript has type 'char' [-Wchar-subscripts]
+         pass[pass_counter] = key_pressed ;
+             ^
+Keypad.c:318:9: warning: unused variable 'pp' [-Wunused-variable]
+     int pp = atoi(pass);
+         ^
+main.c: In function 'main':
+main.c:190:13: error: case label does not reduce to an integer constant
+             case q: 
+             ^
+main.c:186:13: warning: variable 'q' set but not used [-Wunused-but-set-variable]
+         int q = newuserpass();
+             ^[0m
+[31mmake[2]: *** [.ca/build/defaultActiveCA/production/main.o] Error 1
+make[2]: *** Waiting for unfinished jobs....[0m
+nbproject/Makefile-defaultActiveCA.mk:159: recipe for target '.ca/build/defaultActiveCA/production/main.o' failed
+[31mI2C.c: In function 'EEPROM_write_page':
+I2C.c:293:10: warning: unused variable 'check_stats' [-Wunused-variable]
+     char check_stats;
+          ^
+I2C.c: In function 'TWI_Send_SLA':
+I2C.c:97:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'TWI_Master_write':
+I2C.c:118:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'TWI_Master_read':
+I2C.c:135:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'TWI_slave_check_address':
+I2C.c:178:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'TWI_slave_read':
+I2C.c:210:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'TWI_slave_write':
+I2C.c:241:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'EEPROM_call':
+I2C.c:273:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'EEPROM_write_byte':
+I2C.c:289:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'EEPROM_write_page':
+I2C.c:295:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'EEPROM_write_pass':
+I2C.c:318:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+I2C.c: In function 'EEPROM_Check_empty':
+I2C.c:342:1: warning: control reaches end of non-void function [-Wreturn-type]
+ }
+ ^
+UART.c: In function 'UART_receive_string':
+UART.c:292:9: warning: unused variable 'st_led_closed' [-Wunused-variable]
+   char  st_led_closed[50]="led is off*";
+         ^
+UART.c:291:9: warning: unused variable 'st_led_opened' [-Wunused-variable]
+   char  st_led_opened[50]="led is on*";
+         ^[0m
+[31mLamps.c: In function 'LED_on':
+Lamps.c:50:13: warning: implicit declaration of function 'UART_send_string' [-Wimplicit-function-declaration]
+             UART_send_string(on1);
+             ^[0m
+make[2]: Leaving directory 'C:/Users/moham/OneDrive/Desktop/Final.X'
+nbproject/Makefile-defaultActiveCA.mk:85: recipe for target '.build-conf' failed
+make[1]: Leaving directory 'C:/Users/moham/OneDrive/Desktop/Final.X'
+nbproject/Makefile-impl.mk:39: recipe for target '.build-impl' failed
+[31mmake[1]: *** [.build-conf] Error 2
+make: *** [.build-impl] Error 2[0m
+[31mBUILD FAILED (exit value 2, total time: 1s)[0m

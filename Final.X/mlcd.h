@@ -13,9 +13,11 @@
 #define LCD_DATA    PA
 #define LCD_DATA_PORT PORTA
 #define LCD_CONTROL PC
-#define LCD_RS      PC2
-#define LCD_RW      PC3
-#define LCD_EN      PC4
+#define LCD_RS      PC5
+#define LCD_RW      PC6
+#define LCD_EN      PC7
+
+
 
 // To enable 8bit mode uncomment next line, To enable 4 bit mode comment next line.
 //#define LCD_8bit_MODE  
@@ -26,7 +28,8 @@
 #define LCD_cmd_MODE 0x02
 #endif
 
-
+#define first_row   0
+#define second_row  1
 
 #define LCD_cmd_CLEAR            0x01
 #define LCD_cmd_ENTRY_MODE       0x06  

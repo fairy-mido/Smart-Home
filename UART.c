@@ -97,7 +97,7 @@ int strcomp_led(char str[] , char strin[])
 void UART_receive_string()
 {
     
-    setpinOUT(PB,0);
+    // setpinOUT(PB,0);
     
     
    
@@ -114,7 +114,7 @@ void UART_receive_string()
   
     char str[50];
     int i;
-    //while(1)
+    while(1)
     {   
         i=0;
     
