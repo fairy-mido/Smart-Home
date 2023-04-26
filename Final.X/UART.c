@@ -263,9 +263,6 @@ void UART_receive_string()
     
     setpinOUT(PB,0);
     
-    
-   
-    
   char  st_servo_open[50]="open servo*";
   char  st_servo_close[50]="close servo*";
   char  st_newuser[50]="create new user*";
