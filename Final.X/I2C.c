@@ -290,7 +290,7 @@ char EEPROM_write_byte(char data)
 char EEPROM_write_page(char arr[32])
 {
     // Algorithm of it, is to have an array include the page you want to write and increment in a loop till the last element in the array
-    char check_stats;
+//    char check_stats;
     // Here instead of sending 
 }
 
