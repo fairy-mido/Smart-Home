@@ -144,13 +144,15 @@ int main() {
     char no_pass_entered[] = "No Permission";
     char pass_required[] = "Pass Required";
     int i_admin = 0;
-    int i_user  = 0;
-    int q,f,pass,r;
-//    int check = 0;
+    int i_user = 0;
+    int q, f, pass, r;
+    char login_before = 0;
 
-    
-    
-    
+    //    int check = 0;
+
+
+
+
 
     while (1) {
         int pp = admin_pass();
@@ -159,129 +161,112 @@ int main() {
             lcd_clear();
             lcd_data_str(admin_success_login);
             _delay_ms(5);
-            lcd_goto(second_row,2);
+            lcd_goto(second_row, 2);
             lcd_data_str(correct_word);
             _delay_ms(500);
             while (1) {
-                
+
                 // dynamic design  
 
-                if (readPin(PD, 2)) 
-                {
+                if (readPin(PD, 2)) {
                     lcd_clear();
                     lcd_data_str(admin_using);
-//                    _delay_ms(500);
-//                    lcd_clear();
+                    //                    _delay_ms(500);
+                    //                    lcd_clear();
                     UART_receive_string();
                 }
                 //UART_receive_string();
                 lcd_clear();
                 _delay_ms(3);
-//                updated_press_action();
-//                press_action();
-//                lcd_data(Keypad_CheckPress());
-//                _delay_ms(50);
-                
+                //                updated_press_action();
+                //                press_action();
+                //                lcd_data(Keypad_CheckPress());
+                //                _delay_ms(50);
+
                 // Strings for the / and - signs of keypad
                 lcd_data_str(login_user_str);
                 _delay_ms(5);
-                lcd_goto(second_row,0);
+                lcd_goto(second_row, 0);
                 lcd_data_str(access_keypad);
                 _delay_ms(500);
                 lcd_clear();
                 _delay_ms(3);
                 q = Keypad_CheckPress();
-                r=q;
-                if ((q == '/') || (q == '-')) 
-                {
+                r = q;
+                if ((q == '/') || (q == '-')) {
                     pass = 0;
                     EEPROM_call(EEPROM_address_write, EEPROM_User1_Address);
                     EEPROM_call(EEPROM_address_read, EEPROM_User1_Address);
                     _delay_ms(5);
                     f = EEPROM_read_pass();
-                    if((f != 0))
-                    {
-                        if(q == '/')
-                        {
-//                        if((f != 0))
-//                        {
-                        lcd_clear();
-                        _delay_ms(10);
-                        lcd_data_str(user_pass);
-                        _delay_ms(5);
-                        lcd_goto(second_row,0);
-                        lcd_data_str(pass_word);       
-                        _delay_ms(500);
-                        lcd_clear();
-                        pass = login_user_pass();
-                        lcd_clear();
-//                        }
-//                        else
-//                        {
-//                            lcd_data_str(user_no_pass);
-//                            _delay_ms(500);
-//                            lcd_clear();
-//                        }
-                        }
-                    
-                    if((q == '/') || (q == '-'))
-                    {
-                        if((i_user < 2)||(f == pass))
-                        {
-                            if(f == pass)
-                            {
-                            if(q == '-')
-                            {
-                                lcd_data_str(user_using);
-                                _delay_ms(200);
-                            }
-                            while(Keypad_CheckPress() != 'A')
-                            {
-                                lcd_clear();
-                                _delay_ms(3);
-                                lcd_data_str(exit_keypad);
-                                _delay_ms(350);
-                                press_action();
-                            }
-//                          } 
-                            
-//                            else 
-//                            {
-//                                lcd_data_str(wrong_pass);
-//                                _delay_ms(100);
-//                                i_user++;
-//                            }
-                            }
-                            else 
-                            {
-                                if(pass != 0)
-                                {
-                                lcd_data_str(wrong_pass);
-                                _delay_ms(100);
-                                i_user++;
-                                }
-                                else
-                                {
-                                    lcd_data_str(no_pass_entered);
-                                    _delay_ms(5);
-                                    lcd_goto(second_row,0);
-                                    lcd_data_str(pass_required);
-                                    _delay_ms(350);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
-                    }
-                    else
-                        {
-                            lcd_data_str(user_no_pass);
+                    if ((f != 0)) {
+                        if (q == '/') {
+                            //                        if((f != 0))
+                            //                        {
+                            lcd_clear();
+                            _delay_ms(10);
+                            lcd_data_str(user_pass);
+                            _delay_ms(5);
+                            lcd_goto(second_row, 0);
+                            lcd_data_str(pass_word);
                             _delay_ms(500);
                             lcd_clear();
+                            pass = login_user_pass();
+                            lcd_clear();
+                            //                        }
+                            //                        else
+                            //                        {
+                            //                            lcd_data_str(user_no_pass);
+                            //                            _delay_ms(500);
+                            //                            lcd_clear();
+                            //                        }
                         }
+
+                        if ((q == '/') || (q == '-')) {
+                            if ((i_user < 2) || (f == pass)||(login_before)) {
+                                if ((f == pass)||(login_before)) {
+                                    login_before = 1;
+                                    if (q == '-') {
+                                        lcd_data_str(user_using);
+                                        _delay_ms(300);
+                                    }
+                                    while (Keypad_CheckPress() != 'A') {
+                                        lcd_clear();
+                                        _delay_ms(3);
+                                        lcd_data_str(exit_keypad);
+                                        _delay_ms(350);
+                                        press_action();
+                                    }
+                                    //                          } 
+
+                                    //                            else 
+                                    //                            {
+                                    //                                lcd_data_str(wrong_pass);
+                                    //                                _delay_ms(100);
+                                    //                                i_user++;
+                                    //                            }
+                                } else {
+                                    if (pass != 0) {
+                                        lcd_data_str(wrong_pass);
+                                        _delay_ms(100);
+                                        i_user++;
+                                    } else {
+                                        lcd_data_str(no_pass_entered);
+                                        _delay_ms(5);
+                                        lcd_goto(second_row, 0);
+                                        lcd_data_str(pass_required);
+                                        _delay_ms(350);
+                                    }
+                                }
+                            } else {
+                                break;
+                            }
+                        }
+                    } else {
+                        lcd_data_str(user_no_pass);
+                        _delay_ms(500);
+                        lcd_clear();
+                    }
                 }
                 //        if(check == 1)
                 //        {
@@ -298,30 +283,27 @@ int main() {
 
             }
             break;
-        }
-        else 
-        {
+        } else {
             lcd_clear();
             lcd_data_str(wrong_pass);
             _delay_ms(200);
-            if (i_admin == 3) 
-            {
+            if (i_admin == 3) {
                 setpin(PD, 3);
                 lcd_clear();
                 lcd_data_str(reset_system);
-                lcd_goto(second_row,4);
+                lcd_goto(second_row, 4);
                 lcd_data_str(system_word);
-                while(1);
+                while (1);
             }
         }
     }
-              // User while loop
-                setpin(PD, 3);
-                lcd_clear();
-                lcd_data_str(reset_system);
-                lcd_goto(second_row,4);
-                lcd_data_str(system_word);
-                 while(1);
+    // User while loop
+    setpin(PD, 3);
+    lcd_clear();
+    lcd_data_str(reset_system);
+    lcd_goto(second_row, 4);
+    lcd_data_str(system_word);
+    while (1);
     return 0;
 }
 

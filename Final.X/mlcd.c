@@ -122,7 +122,7 @@ void lcd_cmd(char cmd) {
 
 void lcd_data_num(int num) {
     char str[11];
-   itoa(num, str, 10);
+//   itoa(num, str, 10);
     lcd_data_str(str);
 }
 

@@ -6,6 +6,7 @@ Simply It consists of
 4- Temperature Sensor 
 5- Dimmer for changing lamp intensity
 
+
 To get in more details, This system operats on a Admin and User mode.
 As an admin, Admin Contacts and sends messages to the system by a mobile (replaced with the virtual terminal in Simulation).
 Admin can do whatever he likes in the system. with a feature of creating users.
