@@ -145,7 +145,7 @@ int main() {
     char pass_required[] = "Pass Required";
     int i_admin = 0;
     int i_user = 0;
-    int q, f, pass, r;
+    int q, f, pass;
     char login_before = 0;
 
     //    int check = 0;
@@ -192,7 +192,6 @@ int main() {
                 lcd_clear();
                 _delay_ms(3);
                 q = Keypad_CheckPress();
-                r = q;
                 if ((q == '/') || (q == '-')) {
                     pass = 0;
                     EEPROM_call(EEPROM_address_write, EEPROM_User1_Address);
