@@ -5,6 +5,9 @@ Simply It consists of
 3- Servo motor acting as a automatic door
 4- Temperature Sensor 
 5- Dimmer for changing lamp intensity
+6- Buzzer acting as an alarm 
+7- Keypad
+8- LCD for screen display
 
 
 To get in more details, This system operats on a Admin and User mode.
