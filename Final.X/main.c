@@ -197,7 +197,7 @@ int main() {
                     EEPROM_call(EEPROM_address_write, EEPROM_User1_Address);
                     EEPROM_call(EEPROM_address_read, EEPROM_User1_Address);
                     _delay_ms(5);
-                    f = EEPROM_read_pass();
+                    f = EEPROM_read_pass(); // UART RETURN PASS
                     if ((f != 0)) {
                         if (q == '/') {
                             //                        if((f != 0))

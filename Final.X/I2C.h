@@ -18,13 +18,14 @@
 #define SAddress_with_GC                                 0x05
 
 
+// Write = 0  Read = 1  (bits)
 // EEPROM characteristics 
-#define EEPROM_address_write                             0xA2               // 1010 001 + 0 -> 10100010
-#define EEPROM_address_read                              0xA3               // 1010 001 + 1 -> 10100011
+#define EEPROM_address_write                             0xA2               // 1010 001 + 0 -> 1010 0010
+#define EEPROM_address_read                              0xA3               // 1010 001 + 1 -> 1010 0011
 
 // Attributes of Users & Admin 
-#define EEPROM_Admin_Address                             0x0119
-#define EEPROM_User1_Address                             0x011C
+#define EEPROM_Admin_Address                             0x0119    //               0b 0000 0001 0001 1001
+#define EEPROM_User1_Address                             0x011C    // Address Bytes 0b 0000 0001 0001 1011
 
 #define EEPROM_Admin_password                            2307
 #define EEPROM_User1_password                            2611
@@ -54,8 +55,9 @@
 // Master Receiver status 
 #define TWI_status_Master_SLA_R_Ack_Rec                       0x40
 #define TWI_status_Master_SLA_R_Ack_Not_Rec                   0x48
-#define TWI_status_Master_Data_Ack_Ret                        0x50
+#define TWI_status_Master_Data_Ack_Ret                        0x50  // Master Return Ack
 #define TWI_status_Master_Data_Ack_Not_Ret                    0x58
+
 
 // Slave Receiver status
 #define TWI_status_Slave_SLA_W_Ack_Ret                        0x60
@@ -71,7 +73,7 @@
 //Slave Transmitter
 #define TWI_status_Slave_SLA_R_Ack_Ret                        0xA8
 #define TWI_status_Slave_Arb_lost_SLA_R_Ack_Ret               0xB0
-#define TWI_status_Slave_Data_Ack_Rec                         0xB8
+#define TWI_status_Slave_Data_Ack_Rec                         0xB8  // Slave Received Ack
 #define TWI_status_Slave_Data_Ack_Not_Rec                     0xC0
 #define TWI_status_Slave_Data_last_Ack_Rec                    0xC8
 
