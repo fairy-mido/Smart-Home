@@ -5,10 +5,11 @@
 #include <util/delay.h>
 
 
+
 void init_TWI_master(int bit_rate,int pre_scale,int master_address)
 {
     TWBR = bit_rate;
-    TWSR |= (1<<TWPS0)|(1<<TWPS1);  // TWPS pre 4
+    TWSR |= (1<<TWPS0)|(1<<TWPS1);  // TWPS pre 64
     TWAR = master_address;
     
 //    if(pre_scale == TWI_PRE_TWPS_1)
@@ -37,6 +38,7 @@ void init_TWI_master(int bit_rate,int pre_scale,int master_address)
     _delay_ms(100);
 }
 
+// Two Wired Interface == I2C
 void TWI_ACK()
 {
     TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWEA);
@@ -46,6 +48,7 @@ void TWI_STA()
 {
     TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWSTA);
 }
+
 void TWI_STO()
 {
     TWCR = (1<<TWINT)|(1<<TWEN)|(1<<TWSTO);
@@ -116,6 +119,7 @@ char TWI_Master_write(char data)
 //        TWI_STO();
     }
 }
+// Master Receiver
 char TWI_Master_read()
 {
     char bus_stats;
@@ -176,6 +180,8 @@ char TWI_slave_check_address()
 //        return 6;
 //    }
 }
+
+// Slave Receiver
 char TWI_slave_read()
 {
     // Slave Receiver
@@ -197,7 +203,7 @@ char TWI_slave_read()
     if(bus_stats == TWI_status_Slave_stop_repeated_start)
     {
         //Nothing or anything you want to
-        TWI_ACK();
+//        TWI_ACK();
     }  
 //    if(bus_stats == TWI_status_Slave_SLA_W_Data_Rec_Ack_Ret)
 //    {
@@ -212,7 +218,8 @@ char TWI_slave_write(char data)
 {
     char bus_stats;
     TWDR = data;
-    TWI_ACK();
+//    TWI_ACK();
+    TWCR |= (1<<TWINT)|(1<<TWEN);
     TWI_wait();
     bus_stats = TWSR & 0xF8;
     if(bus_stats == TWI_status_Slave_Data_Ack_Rec)
@@ -239,13 +246,15 @@ char TWI_slave_write(char data)
 //    else 
 //        return 0;
 }
+//     0b 0000 0011 1111 1111  -> 0b00000011
 char EEPROM_call(char eeprom_address,short int address_bytes)
 {
+    // 0b 0000 0000 0000 0011
     char check_stats;
     check_stats = TWI_Send_SLA(eeprom_address);
     if(check_stats == 1)      // SLA_W was sent and acknowledge returned 
     {
-        TWDR = (char)(address_bytes>>8);
+        TWDR = (char)(address_bytes>>8);  // High Byte
         TWCR = (1<<TWINT)|(1<<TWEN);
         TWI_wait();
         check_stats = TWSR & 0xF8;
@@ -274,13 +283,13 @@ char EEPROM_call(char eeprom_address,short int address_bytes)
 char EEPROM_write_byte(char data)
 {
     char check_stats;
-    check_stats = TWI_Master_write(data);
+    check_stats = TWI_Master_write(data);  // 1 or 0
     if(check_stats == 1)      // Acknowledge is received :>
     {
         TWI_STO();
         return 1;
     }
-    else if(check_stats == 0) //
+    else if(check_stats == 0) // Acknowledge not received 
     {
         // Nothing to do 
         TWI_STO();
@@ -299,19 +308,19 @@ char EEPROM_write_pass(short int password)
     // Sends two bytes instead of one byte (char) as pass exceeds the bytes 
     char check_stats;
     // Sends 1st byte of password
-    check_stats = TWI_Master_write((char)password);
-    if(check_stats == 1)
+    check_stats = TWI_Master_write((char)password);  // First Pass Byte
+    if(check_stats == 1)   // Acknowledge is received :>
     {
         // Acknowledge received
         // Sends 2nd byte of password 
-        check_stats = TWI_Master_write((char)(password>>8));
+        check_stats = TWI_Master_write((char)(password>>8)); // Second pass Byte
         if(check_stats == 1)
         {
             // Stop Condition
             TWI_STO();
         }
     }
-    else if(check_stats == 0)
+    else if(check_stats == 0) // Not Ack
     {
         // Stop Condition 
     } 
@@ -320,8 +329,8 @@ char EEPROM_write_pass(short int password)
 short int EEPROM_read_pass()
 {
     short int pass;
-    pass = TWI_Master_read();
-    pass |= (TWI_Master_read()<<8);
+    pass = TWI_Master_read();        // 0b 0000 0000  xxxx xxxx
+    pass |= (TWI_Master_read()<<8); // 0b xxxx xxxx 0000 0000
     TWI_STO();
     return pass;
 }
@@ -330,7 +339,7 @@ char EEPROM_retrieve_byte()
 {
     // we already sent the address of the byte that we want to read and then retrieve the data :>
     char data;
-    data = TWI_Master_read();
+    data = TWI_Master_read();  // return TWDR (data)
     TWI_STO();    
     return data;
     
